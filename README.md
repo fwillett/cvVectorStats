@@ -4,7 +4,7 @@ cvVectorStats is a set of functions for using cross-validation to estimate Eucli
 
 Consider the case of estimating the distance between two multivariate distributions A and B. One simple method is to first estimate the means of A and B by averaging observations from A and B, and then to compute the distance between these estimates. However, this method is upwardly biased; for example, if A and B have identical means, this method will always produce a value greater than zero. Cross-validation can overcome this problem in a straightforward way.
 
-cvVectorStats was developed for analyzing neural recordings, which are high-dimensional and noisy, making it difficult to estimate distance accurately. See the paper XXXXX (methods section "Median-Unbiased Measurements of Firing Rate Distance") for a more detailed explanation. I first became aware of the cross-validation technique from the paper YYYYY. 
+cvVectorStats was developed for analyzing neural recordings, which are high-dimensional and noisy, making it difficult to estimate distance accurately. For a more detailed explanation, see the paper "Hand Knob Area of Motor Cortex in People with Tetraplegia Represents the Whole Body in a Modular Way" (https://doi.org/10.1101/659839; methods section "Median-Unbiased Measurements of Firing Rate Distance"). I first became aware of the cross-validation technique from "Searchlight-based multi-voxel pattern analysis of fMRI by cross-validated MANOVA" (https://doi.org/10.1016/j.neuroimage.2013.11.043). 
 
 # Features
 
@@ -24,11 +24,11 @@ The script runAllTests.m simulates each metric and compares it to the standard a
 
 # Details
 
-- cvDistance and cvSpread give fully unbiased estimates of squared distance. However, to compute Euclidean distance, the square root function must be applied. This causes the metric to be biased (though it is still median-unbiased). The bias is slight and only occurs when the distances are very close to zero and/or the data is in a very low signal-to-noise regime (see Supplemental Figure 9 in XXXXXXX). The bias causes the metric to be slightly conservative in these cases. Although squared distance is fully unbiased, I find Euclidean distance to be a much more useful metric (since it is easier to intuitively grasp its meaning and doesn't exaggerate differences when comparing distances).
+- cvDistance and cvSpread give fully unbiased estimates of squared distance. However, to compute Euclidean distance, the square root function must be applied. This causes the metric to be biased (though it is still median-unbiased). The bias is slight and only occurs when the distances are very close to zero and/or the data is in a very low signal-to-noise regime (see Supplemental Figure 9 in https://doi.org/10.1101/659839). The bias causes the metric to be slightly conservative in these cases. Although squared distance is fully unbiased, I find Euclidean distance to be a much more useful metric (since it is easier to intuitively grasp its meaning and doesn't exaggerate differences when comparing distances).
 
 - The cross-validated distance metrics can produce negative values, unlike standard estimates of distance. This is required for the metrics to be unbiased; it should be interpreted as evidence that the true distance is near zero. This should only occurr in low signal-to-noise regimes or when the true distance is small. Likewise, the cross-validated correlation metric can produce correlation values greater than 1 or less than -1. 
 
-- In the original paper XXXXX, the equations are written for the case where each distribution has the same number of observations. The functions provided here also work for unequal numbers of observations. To do so, the data is split into N cross-validation folds, where N is the minimum number of observations across all distributions. Thus, each fold will take only one observation from the distribution with the smallest number of observations, but possibly more than one observation from the other distribution(s).
+- In the original paper (https://doi.org/10.1101/659839), the equations are written for the case where each distribution has the same number of observations. The functions provided here also work for unequal numbers of observations. To do so, the data is split into N cross-validation folds, where N is the minimum number of observations across all distributions. Thus, each fold will take only one observation from the distribution with the smallest number of observations, but possibly more than one observation from the other distribution(s).
 
 
 
