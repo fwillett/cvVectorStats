@@ -24,7 +24,7 @@ The script runAllTests.m simulates each metric and compares it to the standard a
 
 # Simulation Validation
 
-The figure below plots the result of the test scripts for the cross-validated distance and cross-validated correlation metrics It demonstrates that these metrics substantially reduce (i.e. practically eliminate) bias relative to the "standard" alternative to using the sample estimate.  
+The figure below plots the output of the test scripts for the cross-validated distance and correlation estimators. It demonstrates that the cross-validated estimators substantially reduce (i.e. practically eliminate) bias relative to the "standard" alternative to using the sample estimate.  
 
 ![Results of Simulated Tests](../master/Tests/DistanceAndCorrelationValidation.png)
 
