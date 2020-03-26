@@ -4,7 +4,7 @@ cvVectorStats is a set of functions for using cross-validation to estimate Eucli
 
 Consider the case of estimating the distance between the means of two multivariate distributions A and B. One simple method is to first estimate the means of A and B by averaging observations from A and B, and then to compute the distance between these estimates. However, this method is upwardly biased; for example, if A and B have identical means, this method will always produce a value greater than zero. Cross-validation can overcome this problem in a straightforward way.
 
-cvVectorStats was developed for analyzing neural recordings, which are high-dimensional and noisy, making it difficult to estimate distance accurately. For a more detailed explanation, see the paper "Hand Knob Area of Motor Cortex in People with Tetraplegia Represents the Whole Body in a Modular Way" (https://doi.org/10.1101/659839). I first became aware of the cross-validation technique from "Searchlight-based multi-voxel pattern analysis of fMRI by cross-validated MANOVA" (https://doi.org/10.1016/j.neuroimage.2013.11.043). 
+cvVectorStats was developed for analyzing neural recordings, which are high-dimensional and noisy, making it difficult to estimate distance accurately. For a more detailed explanation, see the paper "Hand Knob Area of Premotor Cortex in People with Tetraplegia Represents the Whole Body in a Compositional Way" (https://www.cell.com/cell/fulltext/S0092-8674(20)30220-8?utm_source=EA). I first became aware of the cross-validation technique from "Searchlight-based multi-voxel pattern analysis of fMRI by cross-validated MANOVA" (https://doi.org/10.1016/j.neuroimage.2013.11.043). 
 
 # Features
 
@@ -32,7 +32,7 @@ The figure below plots the output of the test scripts for the cross-validated di
 
 - The cross-validated distance metrics can produce negative values, unlike standard estimates of distance. This is required for the metrics to be unbiased. It should be interpreted as evidence that the true distance is near zero. Negative values should only occur in low signal-to-noise regimes or when the true distance is small. Likewise, the cross-validated correlation metric can produce correlation values greater than 1 or less than -1. 
 
-- In the original paper (https://doi.org/10.1101/659839), the equations are written for the case where each distribution has the same number of observations. The functions provided here also work for unequal numbers of observations. To do so, the data is split into N cross-validation folds, where N is the minimum number of observations across all distributions. Thus, each fold will take only one observation from the distribution with the smallest number of observations, but possibly more than one observation from the other distribution(s).
+- In the original paper (https://www.cell.com/cell/fulltext/S0092-8674(20)30220-8?utm_source=EA), the equations are written for the case where each distribution has the same number of observations. The functions provided here also work for unequal numbers of observations. To do so, the data is split into N cross-validation folds, where N is the minimum number of observations across all distributions. Thus, each fold will take only one observation from the distribution with the smallest number of observations, but possibly more than one observation from the other distribution(s).
 
 
 
