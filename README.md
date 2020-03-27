@@ -4,7 +4,7 @@ cvVectorStats is a set of functions for using cross-validation to estimate Eucli
 
 Consider the case of estimating the distance between the means of two multivariate distributions A and B. One simple method is to first estimate the means of A and B by averaging observations from A and B, and then to compute the distance between these estimates. However, this method is upwardly biased; for example, if A and B have identical means, this method will always produce a value greater than zero. Cross-validation can overcome this problem in a straightforward way.
 
-cvVectorStats was developed for analyzing neural recordings, which are high-dimensional and noisy, making it difficult to estimate distance accurately. For a more detailed explanation, see the paper "Hand Knob Area of Premotor Cortex in People with Tetraplegia Represents the Whole Body in a Compositional Way" (https://doi.org/10.1016/j.cell.2020.02.043). I first became aware of the cross-validation technique from "Searchlight-based multi-voxel pattern analysis of fMRI by cross-validated MANOVA" (https://doi.org/10.1016/j.neuroimage.2013.11.043). 
+cvVectorStats was developed for analyzing neural recordings, which are high-dimensional and noisy, making it difficult to estimate distance accurately. For a more detailed explanation, see the paper "Hand Knob Area of Premotor Cortex Represents the Whole Body in a Compositional Way" (https://doi.org/10.1016/j.cell.2020.02.043). I first became aware of the cross-validation technique from "Searchlight-based multi-voxel pattern analysis of fMRI by cross-validated MANOVA" (https://doi.org/10.1016/j.neuroimage.2013.11.043). 
 
 # Features
 
